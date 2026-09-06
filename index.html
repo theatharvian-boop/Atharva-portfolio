@@ -1,1039 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Braj Bhog Dhaba & Restaurant | Pure Desi Swaad & Modern Ambiance</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Atharva Dwivedi — FinOps, Payments Reconciliation & Regulatory Compliance portfolio." />
+  <meta name="theme-color" content="#07111b" />
+  <title>Atharva Dwivedi | FinOps • Payments • Compliance</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500;600;700;800&family=Mukta:wght@300;400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-  :root{
-    --cream: #f6ecd9;
-    --cream-2: #efe1c4;
-    --wood: #2b1810;
-    --wood-2: #3d2416;
-    --maroon: #6b1e23;
-    --maroon-2: #8a2a2f;
-    --chili: #c1440e;
-    --turmeric: #e8a33d;
-    --brass: #c9a227;
-    --brass-light: #f0cf6a;
-    --leaf: #4d6b3a;
-    --ink: #2c1a12;
-    --paper: #fffaf0;
-    --shadow: rgba(43, 24, 16, 0.35);
-    --glass-bg: rgba(255, 250, 240, 0.55);
-    --glass-border: rgba(201, 162, 39, 0.45);
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body{
-    background: var(--cream);
-    color: var(--ink);
-    font-family: 'Mukta', sans-serif;
-    overflow-x: hidden;
-    position: relative;
-  }
-
-  h1,h2,h3,h4, .display{
-    font-family: 'Baloo Bhai 2', cursive;
-    color: var(--maroon);
-    letter-spacing: 0.5px;
-  }
-
-  .accent-text{ font-family:'Yatra One', cursive; color: var(--chili); }
-
-  ::selection{ background: var(--turmeric); color: var(--wood); }
-
-  ::-webkit-scrollbar{ width:10px; }
-  ::-webkit-scrollbar-track{ background: var(--cream-2); }
-  ::-webkit-scrollbar-thumb{ background: var(--brass); border-radius: 10px; }
-
-  /* Background texture layer */
-  .grain-overlay{
-    position: fixed; inset:0; pointer-events:none; z-index: 2;
-    opacity: 0.045; mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* -------------------- NAV -------------------- */
-  header.nav{
-    position: fixed; top:0; left:0; width:100%; z-index: 1000;
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 18px 6%;
-    background: rgba(43, 24, 16, 0.0);
-    transition: all 0.4s ease;
-    backdrop-filter: blur(0px);
-  }
-  header.nav.scrolled{
-    background: rgba(43, 24, 16, 0.88);
-    backdrop-filter: blur(12px);
-    padding: 12px 6%;
-    box-shadow: 0 6px 24px var(--shadow);
-  }
-
-  .logo{
-    display:flex; align-items:center; gap:12px;
-    font-family:'Baloo Bhai 2', cursive;
-    color: var(--brass-light);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  .logo i{ font-size: 1.7rem; color: var(--turmeric); }
-  .logo span.sub{ display:block; font-family:'Mukta',sans-serif; font-size:0.6rem; letter-spacing:3px; color: var(--cream-2); font-weight:400; text-transform:uppercase; }
-
-  nav.links{ display:flex; gap:34px; list-style:none; }
-  nav.links a{
-    color: var(--cream-2); text-decoration:none; font-weight:600; font-size:0.95rem;
-    position:relative; padding-bottom:4px; transition: color 0.3s;
-  }
-  nav.links a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
-    background: var(--turmeric); transition: width 0.3s ease;
-  }
-  nav.links a:hover{ color: var(--turmeric); }
-  nav.links a:hover::after{ width:100%; }
-
-  .nav-cta{
-    background: linear-gradient(135deg, var(--chili), var(--maroon));
-    color: var(--paper); border:none; padding: 10px 24px; border-radius: 30px;
-    font-weight:700; font-family:'Mukta',sans-serif; cursor:pointer; letter-spacing:0.5px;
-    box-shadow: 0 6px 18px rgba(193,68,14,0.45);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .nav-cta:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px rgba(193,68,14,0.6); }
-
-  .hamburger{ display:none; font-size:1.6rem; color: var(--brass-light); background:none; border:none; cursor:pointer; z-index:1001; }
-
-  /* -------------------- HERO -------------------- */
-  .hero{
-    position: relative;
-    min-height: 100vh;
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(232,163,61,0.18), transparent 55%),
-      radial-gradient(ellipse at 80% 80%, rgba(107,30,35,0.25), transparent 55%),
-      linear-gradient(180deg, var(--wood) 0%, var(--wood-2) 55%, #1c0f0a 100%);
-  }
-
-  #hero-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:1; }
-
-  .hero-content{
-    position:relative; z-index:3; text-align:center; max-width: 900px; padding: 0 24px;
-    animation: heroFade 1.4s ease both;
-  }
-  @keyframes heroFade{
-    from{ opacity:0; transform: translateY(40px); }
-    to{ opacity:1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow{
-    display:inline-flex; align-items:center; gap:10px;
-    color: var(--brass-light); font-weight:600; letter-spacing:4px; text-transform:uppercase;
-    font-size:0.78rem; margin-bottom:22px;
-    border: 1px solid rgba(240,207,106,0.4); padding:8px 20px; border-radius: 30px;
-    background: rgba(240,207,106,0.06);
-  }
-
-  .hero h1{
-    font-size: clamp(2.6rem, 6.2vw, 5.4rem);
-    color: var(--cream);
-    line-height: 1.05;
-    text-shadow: 0 8px 40px rgba(0,0,0,0.55);
-  }
-  .hero h1 .hl{ color: var(--turmeric); }
-
-  .hero p.tagline{
-    margin-top: 22px; font-size: clamp(1.05rem, 2vw, 1.4rem);
-    color: var(--cream-2); font-family:'Yatra One', cursive; letter-spacing: 1px;
-  }
-
-  .hero-btns{ margin-top: 42px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
-
-  .btn{
-    padding: 15px 34px; border-radius: 40px; font-weight:700; font-size:1rem;
-    cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none; font-family:'Mukta',sans-serif;
-  }
-  .btn-primary{
-    background: linear-gradient(135deg, var(--turmeric), var(--chili));
-    color: var(--wood); box-shadow: 0 10px 30px rgba(232,163,61,0.35);
-  }
-  .btn-primary:hover{ transform: translateY(-4px) scale(1.03); box-shadow: 0 16px 36px rgba(232,163,61,0.5); }
-  .btn-outline{
-    background: transparent; color: var(--cream); border: 2px solid var(--brass);
-  }
-  .btn-outline:hover{ background: rgba(201,162,39,0.15); transform: translateY(-4px); }
-
-  .scroll-cue{
-    position:absolute; bottom: 34px; left:50%; transform: translateX(-50%); z-index:3;
-    color: var(--brass-light); font-size:1.5rem; opacity:0.8;
-    animation: bounce 2s infinite;
-  }
-  @keyframes bounce{ 0%,100%{ transform: translate(-50%,0);} 50%{ transform: translate(-50%,10px);} }
-
-  /* -------------------- SECTION SHARED -------------------- */
-  section{ position: relative; padding: 120px 6%; z-index: 1; }
-  .section-head{ text-align:center; max-width: 720px; margin: 0 auto 64px; }
-  .section-head .eyebrow{
-    color: var(--chili); text-transform:uppercase; letter-spacing:4px; font-weight:700; font-size:0.8rem;
-  }
-  .section-head h2{ font-size: clamp(2rem, 4vw, 3.2rem); margin-top:12px; }
-  .section-head p{ margin-top:16px; font-size:1.05rem; color:#5c4534; line-height:1.7; }
-
-  .divider-diya{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:20px; }
-  .divider-diya span{ height:1px; width:60px; background: linear-gradient(90deg, transparent, var(--brass)); }
-  .divider-diya span.r{ background: linear-gradient(90deg, var(--brass), transparent); }
-  .divider-diya i{ color: var(--chili); font-size:1.1rem; }
-
-  /* -------------------- SPECIALITIES -------------------- */
-  .specialities{ background: var(--cream); }
-
-  .special-grid{
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;
-    max-width: 1300px; margin: 0 auto;
-  }
-
-  .special-card{
-    position:relative; border-radius: 22px; overflow:hidden; padding: 36px 26px;
-    background: var(--glass-bg); border: 1px solid var(--glass-border);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 12px 30px rgba(107,30,35,0.08);
-    transition: transform 0.45s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.45s ease;
-    text-align:center;
-  }
-  .special-card::before{
-    content:''; position:absolute; top:-40%; left:-20%; width:140%; height:140%;
-    background: radial-gradient(circle at 30% 20%, rgba(232,163,61,0.25), transparent 60%);
-    opacity:0; transition: opacity 0.5s ease;
-  }
-  .special-card:hover{ transform: translateY(-14px) rotate(-0.5deg); box-shadow: 0 24px 50px rgba(107,30,35,0.22); }
-  .special-card:hover::before{ opacity:1; }
-
-  .special-icon{
-    width: 84px; height:84px; border-radius:50%; margin: 0 auto 20px;
-    display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(135deg, var(--brass-light), var(--turmeric));
-    box-shadow: 0 10px 24px rgba(201,162,39,0.4), inset 0 0 0 4px rgba(255,255,255,0.35);
-    font-size: 2rem; color: var(--wood);
-    transition: transform 0.5s ease;
-  }
-  .special-card:hover .special-icon{ transform: scale(1.12) rotate(8deg); }
-
-  .special-card h3{ font-size:1.3rem; margin-bottom:10px; }
-  .special-card p{ color:#5c4534; font-size:0.95rem; line-height:1.6; }
-  .special-price{
-    display:inline-block; margin-top:16px; font-weight:700; color: var(--chili);
-    font-family:'Baloo Bhai 2', cursive; font-size:1.1rem;
-  }
-
-  /* -------------------- 3D SHOWCASE -------------------- */
-  .showcase{
-    background: linear-gradient(180deg, #1c0f0a, var(--wood) 40%, var(--wood-2));
-    display:grid; grid-template-columns: 1fr 1fr; align-items:center; gap: 40px;
-    overflow:hidden;
-  }
-  .showcase-text{ position:relative; z-index:2; }
-  .showcase-text .eyebrow{ color: var(--turmeric); text-transform:uppercase; letter-spacing:4px; font-weight:700; font-size:0.8rem; }
-  .showcase-text h2{ color: var(--cream); font-size: clamp(2rem,3.6vw,3rem); margin-top:14px; }
-  .showcase-text p{ color: var(--cream-2); margin-top:20px; line-height:1.8; font-size:1.05rem; max-width:520px; }
-
-  .showcase-stats{ display:flex; gap: 34px; margin-top:36px; flex-wrap:wrap; }
-  .showcase-stats .stat h4{ color: var(--brass-light); font-size:2.1rem; font-family:'Baloo Bhai 2',cursive; }
-  .showcase-stats .stat span{ color: var(--cream-2); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; }
-
-  .showcase-canvas-wrap{
-    position:relative; height: 520px; border-radius: 26px; overflow:hidden;
-    background: radial-gradient(circle at center, rgba(232,163,61,0.12), transparent 70%);
-  }
-  #thali-canvas{ width:100%; height:100%; cursor: grab; }
-  .showcase-hint{
-    position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
-    color: var(--cream-2); font-size:0.8rem; letter-spacing:1px; opacity:0.7;
-    display:flex; align-items:center; gap:8px;
-  }
-
-  /* -------------------- AMBIANCE -------------------- */
-  .ambiance{ background: var(--cream-2); }
-  .amb-grid{
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:28px;
-    max-width:1300px; margin:0 auto;
-  }
-  .amb-card{
-    position:relative; border-radius:20px; padding: 40px 30px; min-height: 260px;
-    display:flex; flex-direction:column; justify-content:flex-end;
-    overflow:hidden; isolation:isolate;
-    box-shadow: 0 14px 34px rgba(43,24,16,0.18);
-  }
-  .amb-card::before{
-    content:''; position:absolute; inset:0; z-index:-1;
-    background: var(--bg-grad);
-  }
-  .amb-card::after{
-    content:''; position:absolute; inset:0; z-index:-1;
-    background: linear-gradient(180deg, transparent 20%, rgba(20,10,6,0.75) 100%);
-  }
-  .amb-card h3{ color: var(--cream); font-size:1.4rem; }
-  .amb-card p{ color: var(--cream-2); margin-top:8px; font-size:0.92rem; line-height:1.6; }
-  .amb-card i.deco{ position:absolute; top:22px; right:24px; font-size:1.8rem; color: rgba(255,255,255,0.55); }
-  .amb-card{ transition: transform 0.4s ease; }
-  .amb-card:hover{ transform: translateY(-8px) scale(1.015); }
-
-  .amb1{ --bg-grad: linear-gradient(135deg, #7a3a1e, #3d1c10); }
-  .amb2{ --bg-grad: linear-gradient(135deg, #6b1e23, #35100f); }
-  .amb3{ --bg-grad: linear-gradient(135deg, #4d6b3a, #1e2b15); }
-  .amb4{ --bg-grad: linear-gradient(135deg, #8a5a12, #3d2810); }
-
-  /* -------------------- REVIEWS -------------------- */
-  .reviews{ background: var(--cream); }
-  .reviews-track-wrap{ overflow:hidden; max-width: 1300px; margin: 0 auto; }
-  .reviews-grid{
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:26px;
-  }
-  .review-card{
-    background: var(--paper); border-radius: 20px; padding: 32px 28px;
-    border: 1px solid rgba(201,162,39,0.3);
-    box-shadow: 0 10px 26px rgba(107,30,35,0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    position:relative;
-  }
-  .review-card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(107,30,35,0.15); }
-  .review-stars{ color: var(--turmeric); font-size:0.95rem; margin-bottom:14px; }
-  .review-card p.quote{ color: #4a3728; font-size:0.98rem; line-height:1.7; font-style:italic; }
-  .review-user{ display:flex; align-items:center; gap:12px; margin-top:22px; }
-  .review-avatar{
-    width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(135deg, var(--maroon), var(--chili)); color:#fff; font-weight:700; font-family:'Baloo Bhai 2',cursive;
-  }
-  .review-user h5{ font-size:0.95rem; color: var(--maroon); }
-  .review-user span{ font-size:0.78rem; color:#8a7660; }
-
-  .rating-banner{
-    max-width: 1300px; margin: 60px auto 0; display:flex; justify-content:center; gap:60px; flex-wrap:wrap;
-    padding: 30px; border-radius:20px; background: var(--glass-bg); border:1px solid var(--glass-border); backdrop-filter: blur(8px);
-  }
-  .rating-item{ text-align:center; }
-  .rating-item h3{ font-size:2.2rem; color: var(--chili); }
-  .rating-item span{ display:block; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; color:#7a6650; margin-top:4px;}
-
-  /* -------------------- CONTACT -------------------- */
-  .contact{
-    background: linear-gradient(180deg, var(--wood-2), #170c08);
-  }
-  .contact-grid{
-    display:grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width:1300px; margin:0 auto; align-items:stretch;
-  }
-  .contact-info h2{ color: var(--cream); font-size: clamp(1.8rem,3vw,2.6rem); }
-  .contact-info p.lead{ color: var(--cream-2); margin-top:14px; line-height:1.7; max-width: 480px; }
-
-  .info-list{ list-style:none; margin-top:34px; display:flex; flex-direction:column; gap:22px; }
-  .info-list li{ display:flex; gap:18px; align-items:flex-start; }
-  .info-list .ic{
-    width:48px; height:48px; border-radius:14px; flex-shrink:0;
-    background: rgba(232,163,61,0.12); border:1px solid rgba(232,163,61,0.35);
-    display:flex; align-items:center; justify-content:center; color: var(--turmeric); font-size:1.1rem;
-  }
-  .info-list h4{ color: var(--brass-light); font-size:1.02rem; font-family:'Mukta',sans-serif; font-weight:700; }
-  .info-list p{ color: var(--cream-2); font-size:0.9rem; margin-top:3px; line-height:1.6; }
-
-  .whatsapp-float{
-    display:inline-flex; align-items:center; gap:12px; margin-top:34px;
-    background: linear-gradient(135deg, #25D366, #128C4A);
-    color:#fff; padding: 16px 30px; border-radius: 50px; text-decoration:none; font-weight:700;
-    box-shadow: 0 12px 30px rgba(37,211,102,0.35);
-    transition: transform 0.3s ease;
-  }
-  .whatsapp-float:hover{ transform: translateY(-4px) scale(1.03); }
-  .whatsapp-float i{ font-size:1.4rem; }
-
-  .map-card{
-    border-radius: 22px; overflow:hidden; position:relative; min-height: 420px;
-    border: 1px solid rgba(201,162,39,0.35);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  }
-  .map-card iframe{ width:100%; height:100%; min-height:420px; border:0; filter: sepia(0.15) saturate(1.1); }
-  .map-badge{
-    position:absolute; top:16px; left:16px; background: rgba(20,10,6,0.75); backdrop-filter: blur(6px);
-    color: var(--brass-light); padding:10px 18px; border-radius:30px; font-size:0.82rem; font-weight:700;
-    display:flex; align-items:center; gap:8px; border:1px solid rgba(201,162,39,0.4);
-  }
-
-  form.book-form{
-    margin-top: 40px; display:grid; grid-template-columns: 1fr 1fr; gap:16px;
-    background: rgba(255,250,240,0.05); padding: 26px; border-radius: 18px; border: 1px solid rgba(201,162,39,0.25);
-  }
-  form.book-form input, form.book-form select{
-    padding: 13px 16px; border-radius: 10px; border: 1px solid rgba(201,162,39,0.3);
-    background: rgba(255,250,240,0.08); color: var(--cream); font-family:'Mukta',sans-serif; font-size:0.92rem;
-    outline:none; transition: border-color 0.3s ease;
-  }
-  form.book-form input::placeholder{ color: rgba(240,232,210,0.55); }
-  form.book-form input:focus, form.book-form select:focus{ border-color: var(--turmeric); }
-  form.book-form select option{ color:#000; }
-  form.book-form .full{ grid-column: 1 / -1; }
-  form.book-form button{
-    grid-column: 1/-1; margin-top: 6px;
-  }
-
-  /* -------------------- FOOTER -------------------- */
-  footer{
-    background: #140a06; color: var(--cream-2); text-align:center; padding: 40px 6% 30px;
-    border-top: 1px solid rgba(201,162,39,0.2);
-  }
-  footer .fic{ display:flex; gap:20px; justify-content:center; margin-bottom:18px; }
-  footer .fic a{
-    width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    background: rgba(201,162,39,0.1); color: var(--brass-light); text-decoration:none; border:1px solid rgba(201,162,39,0.3);
-    transition: all 0.3s ease;
-  }
-  footer .fic a:hover{ background: var(--chili); color:#fff; transform: translateY(-4px); }
-  footer p{ font-size:0.85rem; opacity:0.7; }
-  footer p.brand{ font-family:'Yatra One', cursive; color: var(--turmeric); font-size:1.1rem; margin-bottom:8px; opacity:1; }
-
-  /* Fixed WhatsApp button */
-  .wa-fixed{
-    position: fixed; bottom: 26px; right: 26px; z-index: 900;
-    width: 62px; height:62px; border-radius:50%; background: #25D366; color:#fff;
-    display:flex; align-items:center; justify-content:center; font-size:1.7rem;
-    box-shadow: 0 10px 26px rgba(37,211,102,0.5); text-decoration:none;
-    animation: pulse 2.4s infinite;
-  }
-  @keyframes pulse{
-    0%{ box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
-    70%{ box-shadow: 0 0 0 16px rgba(37,211,102,0); }
-    100%{ box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-  }
-
-  .reveal{ opacity:0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
-  .reveal.show{ opacity:1; transform: translateY(0); }
-
-  /* -------------------- RESPONSIVE -------------------- */
-  @media (max-width: 980px){
-    .showcase{ grid-template-columns: 1fr; }
-    .contact-grid{ grid-template-columns: 1fr; }
-    .showcase-canvas-wrap{ height: 400px; order:-1; }
-  }
-
-  @media (max-width: 760px){
-    nav.links{
-      position: fixed; top:0; right:0; height:100vh; width: 74%; max-width:320px;
-      background: var(--wood-2); flex-direction:column; padding: 100px 34px; gap:28px;
-      transform: translateX(100%); transition: transform 0.4s ease; box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+  <style>
+    :root{
+      --bg:#050a10;
+      --panel:#0b121b;
+      --panel2:#0d1721;
+      --text:#eef5ff;
+      --muted:#91a0b5;
+      --line:rgba(255,255,255,.10);
+      --cyan:#25e7d0;
+      --blue:#6f8cff;
+      --green:#45e6a5;
+      --danger:#ff5470;
+      --max:1180px;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
     }
-    nav.links.open{ transform: translateX(0); }
-    .hamburger{ display:block; }
-    .nav-cta{ display:none; }
-    section{ padding: 90px 6%; }
-    form.book-form{ grid-template-columns: 1fr; }
-  }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior:auto !important; }
-  }
-</style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at 75% 8%,rgba(38,231,208,.09),transparent 28%),
+        radial-gradient(circle at 15% 30%,rgba(111,140,255,.08),transparent 26%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom,black,transparent 78%);
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .mono{font:12px "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow{color:var(--cyan);font:600 12px "JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase}
+    .muted{color:var(--muted)}
+
+    /* NAV */
+    nav{
+      position:fixed;z-index:50;top:18px;left:50%;transform:translateX(-50%);
+      width:min(calc(100% - 28px),1160px);
+      padding:12px 18px;border:1px solid var(--line);border-radius:28px;
+      background:rgba(8,15,23,.78);backdrop-filter:blur(18px);
+      box-shadow:0 12px 40px rgba(0,0,0,.25);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font:700 22px "Space Grotesk";letter-spacing:-.06em}
+    .brand span{color:var(--cyan)}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font:600 11px "JetBrains Mono";letter-spacing:.14em;color:#aab5c6;text-transform:uppercase;transition:.2s}
+    .nav-links a:hover{color:#fff}
+    .nav-actions{display:flex;gap:9px;align-items:center}
+    .icon-btn,.say-btn{
+      border:1px solid var(--line);background:rgba(255,255,255,.025);color:#dfe8f6;
+      height:38px;border-radius:50%;display:grid;place-items:center;transition:.2s
+    }
+    .icon-btn{width:38px}
+    .say-btn{padding:0 18px;border-radius:22px;color:#fff;background:linear-gradient(135deg,#334bd7,#23cdbd);font:700 11px "JetBrains Mono";letter-spacing:.12em}
+    .icon-btn:hover,.say-btn:hover{transform:translateY(-2px);border-color:rgba(37,231,208,.5)}
+    .hamb{display:none;background:none;border:0;color:white;font-size:24px}
+
+    /* HERO */
+    .hero{min-height:790px;padding:150px 0 70px;display:grid;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    h1{font:700 clamp(50px,6.4vw,82px)/.98 "Space Grotesk";letter-spacing:-.065em;margin:17px 0 22px}
+    h1 .grad{background:linear-gradient(100deg,#fff 5%,#879cff 45%,#25e7d0 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:18px;max-width:610px;color:#a8b5c8}
+    .hero-copy strong{color:#edf5ff}
+    .hero-cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:13px;transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,#566fff,#22d5bd);color:white;border:0}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#8392a8;font:11px "JetBrains Mono";text-transform:uppercase;letter-spacing:.1em}
+    .network{
+      position:relative;min-height:470px;border:1px solid rgba(37,231,208,.15);border-radius:30px;
+      background:radial-gradient(circle at 50% 45%,rgba(38,231,208,.09),transparent 38%),rgba(8,16,25,.5);
+      overflow:hidden;box-shadow:var(--shadow)
+    }
+    .network:before,.network:after{content:"";position:absolute;border-radius:50%;filter:blur(30px)}
+    .network:before{width:120px;height:120px;background:rgba(37,231,208,.18);top:90px;right:80px}
+    .network:after{width:100px;height:100px;background:rgba(111,140,255,.17);left:80px;bottom:90px}
+    .nodes{position:absolute;inset:50px}
+    .node{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px currentColor;animation:pulse 2.5s infinite}
+    .node.blue{background:#7190ff;color:#7190ff}.node.red{background:var(--danger);color:var(--danger)}
+    .n1{left:13%;top:36%}.n2{left:26%;top:57%}.n3{left:41%;top:28%}.n4{left:53%;top:49%}.n5{left:69%;top:24%}.n6{left:82%;top:48%}.n7{left:60%;top:76%}.n8{left:34%;top:80%}
+    .edge{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(74,218,203,.5),transparent);transform-origin:left center}
+    .e1{width:190px;left:17%;top:41%;transform:rotate(25deg)}.e2{width:180px;left:28%;top:55%;transform:rotate(-20deg)}.e3{width:220px;left:43%;top:31%;transform:rotate(18deg)}.e4{width:170px;left:55%;top:50%;transform:rotate(-25deg)}.e5{width:170px;left:63%;top:29%;transform:rotate(34deg)}.e6{width:210px;left:38%;top:61%;transform:rotate(16deg)}
+    .status-card{position:absolute;padding:13px 16px;border:1px solid var(--line);background:rgba(7,14,22,.85);border-radius:13px;backdrop-filter:blur(12px);font:10px "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase}
+    .status-card b{display:block;color:#fff;font-size:12px;margin-top:4px}.matched{top:52px;right:25px}.unmatched{left:24px;bottom:88px}.compliant{right:38px;bottom:52px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:8px;box-shadow:0 0 10px var(--cyan)}.red-dot{background:var(--danger);box-shadow:0 0 10px var(--danger)}
+    @keyframes pulse{50%{transform:scale(1.55);opacity:.6}}
+
+    /* METRICS */
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.025)}
+    .metric{padding:22px;border-right:1px solid var(--line)}.metric:last-child{border-right:0}
+    .metric strong{display:block;font:700 24px "Space Grotesk";margin-bottom:4px}.metric span{color:#8290a4;font-size:12px}
+
+    section{padding:105px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
+    h2{font:700 clamp(32px,4vw,48px)/1.05 "Space Grotesk";letter-spacing:-.045em;margin-top:8px}
+    .section-head p{max-width:500px;color:var(--muted);font-size:14px}
+
+    /* PROJECTS */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .project{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(145deg,rgba(14,25,37,.9),rgba(7,13,20,.88));transition:.25s;position:relative;overflow:hidden}
+    .project.featured{border-color:rgba(37,231,208,.28);grid-column:span 2}
+    .project:hover{transform:translateY(-5px);border-color:rgba(111,140,255,.4);box-shadow:0 20px 55px rgba(0,0,0,.28)}
+    .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .project h3{font:700 25px "Space Grotesk";letter-spacing:-.025em;margin:10px 0 10px}
+    .project p{color:#8f9db1;font-size:14px;line-height:1.75}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+    .tag{font:10px "JetBrains Mono";letter-spacing:.09em;text-transform:uppercase;color:#b4bdca;border:1px solid var(--line);padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.03)}
+    .project-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .small-btn{padding:9px 12px;border-radius:9px;border:1px solid var(--line);font:600 10px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase}
+    .small-btn.primary{border-color:rgba(37,231,208,.35);color:var(--cyan)}
+    .mock{
+      min-height:245px;border-radius:15px;border:1px solid rgba(255,255,255,.08);
+      background:#071018;padding:15px;box-shadow:inset 0 0 40px rgba(0,0,0,.35)
+    }
+    .mock-top{display:flex;gap:7px;margin-bottom:14px}.mock-top i{width:7px;height:7px;border-radius:50%;background:#405064}
+    .mock-title{font:700 12px "JetBrains Mono";color:#dce8f6;margin-bottom:14px}
+    .mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .mock-box{height:45px;border:1px solid rgba(255,255,255,.07);border-radius:7px;background:rgba(255,255,255,.025);padding:8px}.mock-box b{font-size:12px;color:#e9f3ff}.mock-box span{font-size:7px;color:#6f8197}
+    .bars{display:flex;align-items:end;gap:7px;height:100px;margin-top:12px}.bars i{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,#1abcae,#526eff);opacity:.8}.bars i:nth-child(1){height:40%}.bars i:nth-child(2){height:70%}.bars i:nth-child(3){height:55%}.bars i:nth-child(4){height:88%}.bars i:nth-child(5){height:64%}.bars i:nth-child(6){height:95%}
+
+    /* SKILLS */
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .skill{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+    .skill strong{display:block;margin:8px 0 4px}.skill span{font-size:12px;color:var(--muted)}
+
+    /* EXPERIENCE */
+    .timeline{position:relative;max-width:900px;margin:auto}
+    .timeline:before{content:"";position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(111,140,255,.2))}
+    .role{position:relative;padding-left:62px;margin-bottom:28px}
+    .role:before{content:"";position:absolute;left:13px;top:5px;width:15px;height:15px;border-radius:50%;border:3px solid var(--bg);background:var(--cyan);box-shadow:0 0 0 1px rgba(37,231,208,.5),0 0 18px rgba(37,231,208,.35)}
+    .role-card{padding:22px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.025)}
+    .role-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.role h3{font:700 19px "Space Grotesk"}.date{color:#718096;font:10px "JetBrains Mono"}
+    .role ul{margin:12px 0 0 18px;color:#93a1b5;font-size:13px}.role li{margin:6px 0}
+
+    /* CONTACT */
+    .contact-box{padding:38px;border:1px solid rgba(37,231,208,.2);border-radius:25px;background:radial-gradient(circle at 80% 0,rgba(37,231,208,.1),transparent 35%),rgba(255,255,255,.025);display:grid;grid-template-columns:1fr 1fr;gap:45px}
+    .contact-box h2{margin-bottom:14px}.contact-box p{color:var(--muted);max-width:480px}
+    .contact-links{display:grid;gap:10px}.contact-link{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);display:flex;justify-content:space-between;align-items:center}.contact-link span{color:var(--muted);font-size:12px}.contact-link b{font-size:13px}
+
+    footer{padding:28px 0 40px;color:#68778b;font-size:11px;border-top:1px solid rgba(255,255,255,.06)}
+    footer .wrap{display:flex;justify-content:space-between;gap:20px}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){
+      .nav-links{display:none}.hamb{display:block}
+      .nav-links.open{display:flex;position:absolute;top:62px;left:0;right:0;padding:18px;border:1px solid var(--line);border-radius:18px;background:#09121b;flex-direction:column;gap:16px}
+      .hero-grid,.project-grid,.contact-box{grid-template-columns:1fr}.network{min-height:390px}
+      .metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .skills{grid-template-columns:repeat(2,1fr)}.project.featured{grid-column:span 1}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(calc(100% - 26px),var(--max))}nav{top:8px}
+      .nav-actions .icon-btn{display:none}.hero{padding-top:125px;min-height:auto}h1{font-size:52px}
+      .network{min-height:320px}.nodes{inset:25px}.status-card{transform:scale(.86);transform-origin:center}
+      .metrics,.skills{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)!important}.metric:last-child{border-bottom:0!important}
+      .project{padding:18px}.project-grid{gap:18px}.mock{min-height:210px}
+      .section-head{display:block}.section-head p{margin-top:12px}.role-top{display:block}.date{display:block;margin-top:5px}
+      section{padding:75px 0}.contact-box{padding:25px}.hero-meta{gap:12px}
+      footer .wrap{display:block}footer .wrap div+div{margin-top:8px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.node{animation:none}.btn,.project{transition:none}
+    }
+  </style>
 </head>
+
 <body>
-
-<div class="grain-overlay"></div>
-
-<!-- ============ NAV ============ -->
-<header class="nav" id="mainNav">
-  <div class="logo">
-    <i class="fa-solid fa-fire-flame-curved"></i>
-    <div>
-      Braj Bhog Dhaba
-      <span class="sub">& Restaurant</span>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#top">AD<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+        <a class="icon-btn" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer" aria-label="GitHub">⌘</a>
+        <a class="say-btn" href="#contact">SAY HI</a>
+        <button class="hamb" id="hamb" aria-label="Open menu">☰</button>
+      </div>
     </div>
-  </div>
-  <nav class="links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#specialities">Menu</a>
-    <a href="#showcase">Our Thali</a>
-    <a href="#ambiance">Ambiance</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
   </nav>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Table</button>
-  <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
-</header>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="home">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-eyebrow"><i class="fa-solid fa-om"></i> Est. on the Highway &nbsp;•&nbsp; Family Run Since Generations</div>
-    <h1>Pure Desi <span class="hl">Swaad</span> &<br> Modern Ambiance</h1>
-    <p class="tagline">जहाँ हर थाली में बसती है माँ के हाथों की खुशबू</p>
-    <div class="hero-btns">
-      <a href="#specialities" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> View Menu</a>
-      <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-calendar-check"></i> Book Table</a>
-    </div>
-  </div>
-  <div class="scroll-cue"><i class="fa-solid fa-chevron-down"></i></div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">FinOps • Payments • Compliance • Automation</div>
+          <h1>From <span class="grad">Transactions</span><br>to <span class="grad">Trust.</span></h1>
+          <p class="hero-copy">
+            MBA Finance candidate with hands-on <strong>FinOps internship experience in UPI reconciliation</strong> and payments operations at Razorpay. Skilled in transaction matching, exception management, and AI-driven tools for streamlining reconciliation workflows.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">VIEW PROJECTS →</a>
+            <a class="btn" href="mailto:theatharvian@gmail.com?subject=Portfolio%20Enquiry">✉ CONTACT ME</a>
+          </div>
+          <div class="hero-meta"><span>📍 Unnao, Uttar Pradesh, India</span><span>Hindi • English</span><span>FinOps • Payments • Finance</span></div>
+        </div>
 
-<!-- ============ SPECIALITIES ============ -->
-<section class="specialities" id="specialities">
-  <div class="section-head reveal">
-    <div class="eyebrow">Our Specialities</div>
-    <h2>Straight From The <span class="accent-text">Tandoor</span></h2>
-    <div class="divider-diya"><span></span><i class="fa-solid fa-pepper-hot"></i><span class="r"></span></div>
-    <p>Slow-cooked dals, hand-rolled rotis and smoky tandoori flavours — recipes passed down through three generations of our dhaba family.</p>
-  </div>
-
-  <div class="special-grid">
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-fire-burner"></i></div>
-      <h3>Dal Makhani</h3>
-      <p>Slow-simmered overnight on coal embers, finished with farm-fresh white butter and cream.</p>
-      <span class="special-price">₹220</span>
-    </div>
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-      <h3>Tandoori Delights</h3>
-      <p>Marinated overnight in curd & spices, charred to smoky perfection in our clay tandoor.</p>
-      <span class="special-price">₹280</span>
-    </div>
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-      <h3>Sarson Ka Saag & Makki Roti</h3>
-      <p>A true Punjabi winter classic, served with a dollop of pure ghee and jaggery.</p>
-      <span class="special-price">₹190</span>
-    </div>
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-bowl-rice"></i></div>
-      <h3>Braj Bhog Thali</h3>
-      <p>Our signature unlimited thali — 2 sabzi, dal, rice, roti, salad, papad & sweet.</p>
-      <span class="special-price">₹249</span>
-    </div>
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-mug-hot"></i></div>
-      <h3>Highway Kadak Chai</h3>
-      <p>Boiled in brass kettles with khoya, cardamom & fresh ginger — the trucker's favourite.</p>
-      <span class="special-price">₹25</span>
-    </div>
-    <div class="special-card reveal">
-      <div class="special-icon"><i class="fa-solid fa-ice-cream"></i></div>
-      <h3>Gud Ki Kheer</h3>
-      <p>Slow-boiled rice pudding sweetened with jaggery and topped with roasted dry-fruits.</p>
-      <span class="special-price">₹99</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3D SHOWCASE ============ -->
-<section class="showcase" id="showcase">
-  <div class="showcase-text reveal">
-    <div class="eyebrow">The Brass Thali</div>
-    <h2>Crafted The Way<br>Our Grandmothers Did</h2>
-    <p>Every dish at Braj Bhog is served the traditional way — in a hand-hammered brass thali, exactly as it has been for generations at highway dhabas across Punjab. Move your mouse or touch the plate to spin it.</p>
-    <div class="showcase-stats">
-      <div class="stat"><h4>35+</h4><span>Years Legacy</span></div>
-      <div class="stat"><h4>50+</h4><span>Signature Dishes</span></div>
-      <div class="stat"><h4>4.7★</h4><span>Google Rating</span></div>
-    </div>
-  </div>
-  <div class="showcase-canvas-wrap reveal">
-    <canvas id="thali-canvas"></canvas>
-    <div class="showcase-hint"><i class="fa-solid fa-arrows-rotate"></i> drag / move mouse to rotate the thali</div>
-  </div>
-</section>
-
-<!-- ============ AMBIANCE ============ -->
-<section class="ambiance" id="ambiance">
-  <div class="section-head reveal">
-    <div class="eyebrow">The Vibe</div>
-    <h2>Rustic Charm, <span class="accent-text">Desi Dil</span></h2>
-    <div class="divider-diya"><span></span><i class="fa-solid fa-fire"></i><span class="r"></span></div>
-    <p>Charpai seating, string lights, live tandoor flames and the aroma of woodfire — an experience, not just a meal.</p>
-  </div>
-  <div class="amb-grid">
-    <div class="amb-card amb1 reveal">
-      <i class="fa-solid fa-couch deco"></i>
-      <h3>Charpai Courtyard</h3>
-      <p>Traditional woven charpais under open sky, string lights and mustard fields in view.</p>
-    </div>
-    <div class="amb-card amb2 reveal">
-      <i class="fa-solid fa-fire-flame-curved deco"></i>
-      <h3>Live Tandoor Counter</h3>
-      <p>Watch our chefs hand-roll rotis and pull sizzling skewers straight from the clay oven.</p>
-    </div>
-    <div class="amb-card amb3 reveal">
-      <i class="fa-solid fa-truck-fast deco"></i>
-      <h3>Highway Dhaba Soul</h3>
-      <p>Located right on the highway — the perfect pit-stop for truckers and travelling families alike.</p>
-    </div>
-    <div class="amb-card amb4 reveal">
-      <i class="fa-solid fa-users deco"></i>
-      <h3>Family Halls</h3>
-      <p>Spacious air-cooled indoor seating for family gatherings, kitty parties and celebrations.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REVIEWS ============ -->
-<section class="reviews" id="reviews">
-  <div class="section-head reveal">
-    <div class="eyebrow">Customer Love</div>
-    <h2>What Our <span class="accent-text">Mehmaan</span> Say</h2>
-    <div class="divider-diya"><span></span><i class="fa-solid fa-heart"></i><span class="r"></span></div>
-  </div>
-
-  <div class="reviews-track-wrap">
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="quote">"Stopped here during a road trip and honestly the Dal Makhani was better than any 5-star hotel. Pure ghee ka swaad!"</p>
-        <div class="review-user">
-          <div class="review-avatar">R</div>
-          <div><h5>Rohit Sharma</h5><span>Google Review</span></div>
+        <div class="network reveal" aria-label="Animated-style reconciliation network">
+          <div class="nodes">
+            <i class="node n1"></i><i class="node blue n2"></i><i class="node n3"></i><i class="node blue n4"></i>
+            <i class="node n5"></i><i class="node n6"></i><i class="node blue n7"></i><i class="node red n8"></i>
+            <i class="edge e1"></i><i class="edge e2"></i><i class="edge e3"></i><i class="edge e4"></i><i class="edge e5"></i><i class="edge e6"></i>
+          </div>
+          <div class="status-card matched"><span class="dot"></span>Transaction <b>Matched</b></div>
+          <div class="status-card unmatched"><span class="dot red-dot"></span>Transaction <b>Unmatched</b></div>
+          <div class="status-card compliant"><span class="dot"></span>Regulatory <b>Compliant</b></div>
         </div>
       </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="quote">"The charpai seating and live tandoor make it feel like eating at my nani's village home. Kids loved it too."</p>
-        <div class="review-user">
-          <div class="review-avatar">P</div>
-          <div><h5>Priya Malhotra</h5><span>Google Review</span></div>
-        </div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="quote">"As a truck driver, this is the only dhaba on this route I trust for hygienic, home-style food. Highly recommended!"</p>
-        <div class="review-user">
-          <div class="review-avatar">S</div>
-          <div><h5>Sukhwinder Singh</h5><span>Google Review</span></div>
-        </div>
+    </section>
+
+    <div class="wrap reveal">
+      <div class="metrics">
+        <div class="metric"><strong>UPI</strong><span>Payments reconciliation</span></div>
+        <div class="metric"><strong>3-Tier</strong><span>Matching hierarchy</span></div>
+        <div class="metric"><strong>BBPS</strong><span>Bill payment matching</span></div>
+        <div class="metric"><strong>T+1/T+2</strong><span>Settlement discrepancy analysis</span></div>
       </div>
     </div>
 
-    <div class="rating-banner reveal">
-      <div class="rating-item"><h3>4.7</h3><span><i class="fa-solid fa-star"></i> Google Rating</span></div>
-      <div class="rating-item"><h3>2,300+</h3><span>Happy Reviews</span></div>
-      <div class="rating-item"><h3>98%</h3><span>Recommend Us</span></div>
-    </div>
-  </div>
-</section>
+    <section id="about">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="eyebrow">01 • About</div><h2>Finance meets<br>technology.</h2></div>
+          <p>My work sits at the intersection of finance operations, payment systems, reconciliation, compliance, and AI-assisted workflow automation.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <div class="eyebrow" style="color:var(--turmeric);text-transform:uppercase;letter-spacing:4px;font-weight:700;font-size:0.8rem;">Visit Us</div>
-      <h2>Find Us On The Highway</h2>
-      <p class="lead">Easily accessible with ample parking for cars, buses and trucks. Open all 7 days for breakfast, lunch and dinner.</p>
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">02 • Featured Work</div><h2>Projects that solve<br><span style="color:var(--cyan)">real problems.</span></h2></div>
+          <p>Selected projects focused on reconciliation, regulatory reporting, payment operations, and career tooling.</p>
+        </div>
 
-      <ul class="info-list">
-        <li>
-          <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
-          <div><h4>Address</h4><p>NH-19 Highway Point, Near Milestone 42, Braj Bhog Dhaba & Restaurant, Uttar Pradesh, India</p></div>
-        </li>
-        <li>
-          <div class="ic"><i class="fa-solid fa-phone"></i></div>
-          <div><h4>Call for Booking</h4><p>+91 98765 43210 &nbsp;|&nbsp; +91 91234 56789</p></div>
-        </li>
-        <li>
-          <div class="ic"><i class="fa-regular fa-clock"></i></div>
-          <div><h4>Open Hours</h4><p>Everyday — 7:00 AM to 11:30 PM</p></div>
-        </li>
-      </ul>
+        <div class="projects">
+          <article class="project featured reveal">
+            <div class="project-grid">
+              <div>
+                <div class="eyebrow">AI Reconciliation Tooling • Flagship</div>
+                <h3>ReconCopilot</h3>
+                <p>End-to-end reconciliation command center built around a three-tier transaction matching workflow, synthetic datasets, fast lookup logic, and an AI-assisted investigation experience.</p>
+                <div class="tags"><span class="tag">3-Tier Matching</span><span class="tag">Synthetic Data</span><span class="tag">O(n) Lookup</span><span class="tag">Claude API</span><span class="tag">HTML</span></div>
+                <div class="project-links">
+                  <a class="small-btn primary" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a>
+                  <a class="small-btn" href="#contact">PROJECT DETAILS →</a>
+                </div>
+              </div>
+              <div class="mock">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-title">RECON COMMAND CENTER</div>
+                <div class="mock-grid"><div class="mock-box"><b>98.4%</b><span>MATCH RATE</span></div><div class="mock-box"><b>12,842</b><span>PROCESSED</span></div><div class="mock-box"><b>184</b><span>BREAKS</span></div></div>
+                <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </article>
 
-      <a href="https://wa.me/919876543210?text=Namaste!%20I%20would%20like%20to%20order%2Fbook%20a%20table%20at%20Braj%20Bhog%20Dhaba." target="_blank" class="whatsapp-float">
-        <i class="fa-brands fa-whatsapp"></i> Order / Book via WhatsApp
-      </a>
+          <article class="project reveal">
+            <div class="eyebrow">Razorpay Internship Project</div>
+            <h3>RBI Regulatory Compliance Dashboard</h3>
+            <p>A compliance-dashboard concept included in the portfolio to showcase interest in regulatory reporting and structured payment-operations workflows.</p>
+            <div class="tags"><span class="tag">RBI Guidelines</span><span class="tag">Regulatory Reporting</span><span class="tag">Data Aggregation</span><span class="tag">Compliance Monitoring</span></div>
+            <div class="project-links"><a class="small-btn primary" href="#contact">PROJECT DETAILS →</a></div>
+          </article>
 
-      <form class="book-form" onsubmit="handleBooking(event)">
-        <input type="text" placeholder="Your Name" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <input type="date" required />
-        <select required>
-          <option value="" disabled selected>No. of Guests</option>
-          <option>1 - 2 Guests</option>
-          <option>3 - 5 Guests</option>
-          <option>6 - 10 Guests</option>
-          <option>10+ Guests</option>
-        </select>
-        <input type="text" class="full" placeholder="Any special request (optional)" />
-        <button type="submit" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Confirm Booking Request</button>
-      </form>
-    </div>
+          <article class="project reveal">
+            <div class="eyebrow">Internal Tooling</div>
+            <h3>AI-Assisted Reconciliation Dashboard</h3>
+            <p>Personal reconciliation dashboard developed through AI-assisted prompting to turn manual matching work into a more structured and repeatable workflow.</p>
+            <div class="tags"><span class="tag">AI Prompting</span><span class="tag">Workflow Automation</span><span class="tag">Reconciliation</span></div>
+            <div class="project-links"><a class="small-btn primary" href="#contact">VIEW DETAILS →</a></div>
+          </article>
 
-    <div class="map-card reveal">
-      <div class="map-badge"><i class="fa-solid fa-location-arrow"></i> Braj Bhog Dhaba & Restaurant</div>
-      <iframe
-        src="https://www.google.com/maps?q=Braj+Bhog+Dhaba+%26+Restaurant&output=embed"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
+          <article class="project reveal">
+            <div class="eyebrow">AI • Career Tooling</div>
+            <h3>Jobfit AI</h3>
+            <p>An AI-oriented job matching concept that compares candidate information with role requirements and helps surface relevant opportunities.</p>
+            <div class="tags"><span class="tag">AI Resume Matching</span><span class="tag">Job Discovery</span><span class="tag">Automation</span></div>
+            <div class="project-links"><a class="small-btn primary" href="https://github.com/theatharvian-boop/Mba-Job-Matcher" target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <p class="brand">॥ अन्नदाता सुखी भव ॥</p>
-  <div class="fic">
-    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-  </div>
-  <p>&copy; 2026 Braj Bhog Dhaba & Restaurant. All Rights Reserved. | Crafted with <i class="fa-solid fa-heart" style="color:var(--chili);"></i> for Desi Swaad.</p>
-</footer>
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">03 • Skills</div><h2>Tools & technologies.</h2></div>
+        </div>
+        <div class="skills">
+          <div class="skill reveal"><div class="eyebrow">01</div><strong>FinOps & Fintech</strong><span>UPI Reconciliation • BBPS Bill Payment Matching • Payment Lifecycle • Chargeback Basics • Exception Management</span></div>
+          <div class="skill reveal"><div class="eyebrow">02</div><strong>Microsoft Excel</strong><span>VLOOKUP • Pivot Tables • SUMIF • COUNTIF • MS Office Suite</span></div>
+          <div class="skill reveal"><div class="eyebrow">03</div><strong>AI-Assisted Tooling</strong><span>AI-powered reconciliation tooling • Workflow streamlining • Manual process automation</span></div>
+          <div class="skill reveal"><div class="eyebrow">04</div><strong>Professional Skills</strong><span>Problem Solving • Team Leadership • Communication • Time Management • Attention to Detail • Analytical Mindset</span></div>
+        </div>
+      </div>
+    </section>
 
-<a href="https://wa.me/919876543210?text=Namaste!%20I%20would%20like%20to%20order%20food%20from%20Braj%20Bhog%20Dhaba." target="_blank" class="wa-fixed" aria-label="Order on WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-</a>
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">04 • Experience</div><h2>Professional journey.</h2></div>
+        </div>
+        <div class="timeline">
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>FinOps Intern — POP UPI Reconciliation Team</h3><div class="eyebrow" style="margin-top:5px">Razorpay • Bangalore, India</div></div><span class="date">2-MONTH INTERNSHIP</span></div>
+              <ul>
+                <li>Performed end-to-end reconciliation of POP UPI transactions across multiple internal and BBPS data sources.</li>
+                <li>Applied the three-tier matching hierarchy: order_number → payment_reference_id → bbps_transaction_id.</li>
+                <li>Used hybrid payment formula logic: BBPS Amount = Internal Amount − Coins Redeemed.</li>
+                <li>Used AI-powered tooling to streamline manual reconciliation steps and reduce turnaround time.</li>
+                <li>Investigated settlement discrepancies across T+1/T+2 cycles and coordinated resolution with cross-functional payment data.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>MBA — Finance & Operations</h3><div class="eyebrow" style="margin-top:5px">Dr. A.P.J. Abdul Kalam Technical University (AKTU)</div></div><span class="date">PURSUING</span></div>
+              <ul><li>Current MBA Finance & Operations candidate focused on analytical, operational, and finance-oriented problem solving.</li></ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>B.A. — Bachelor of Arts</h3><div class="eyebrow" style="margin-top:5px">Chhatrapati Shahu Ji Maharaj University, Kanpur</div></div><span class="date">COMPLETED</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-/* ================= NAV BEHAVIOUR ================= */
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) mainNav.classList.add('scrolled');
-  else mainNav.classList.remove('scrolled');
-});
+    <section id="leadership">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="eyebrow">05 • Leadership & Activities</div><h2>Beyond the<br><span style="color:var(--cyan)">work.</span></h2></div>
+          <p>Activities that reflect communication, confidence, teamwork, and leadership.</p>
+        </div>
+        <div class="skills">
+          <div class="skill"><div class="eyebrow">01</div><strong>Inter-College Debate</strong><span>Led a group for an inter-college debate competition.</span></div>
+          <div class="skill"><div class="eyebrow">02</div><strong>Management Fest</strong><span>Participated in an Ad Mad Show during a college Management Fest.</span></div>
+        </div>
+      </div>
+    </section>
 
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const navLinks = document.getElementById('navLinks');
-hamburgerBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  hamburgerBtn.innerHTML = navLinks.classList.contains('open')
-    ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-});
-document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  hamburgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-}));
+    <section id="contact">
+      <div class="wrap reveal">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">06 • Contact</div>
+            <h2>Let's build something<br><span style="color:var(--cyan)">meaningful.</span></h2>
+            <p>Seeking a full-time opportunity in FinOps, Payments, or Finance where I can apply analytical rigor and process ownership to drive operational accuracy.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:theatharvian@gmail.com"><span>Email</span><b>theatharvian@gmail.com ↗</b></a>
+            <a class="contact-link" href="tel:+918574888867"><span>Phone</span><b>+91-8574888867</b></a>
+            <div class="contact-link"><span>Location</span><b>Unnao, Uttar Pradesh, India</b></div>
+            <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span><b>Connect ↗</b></a>
+            <a class="contact-link" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer"><span>GitHub</span><b>theatharvian-boop ↗</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-/* ================= SCROLL REVEAL ================= */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-}, { threshold: 0.15 });
-revealEls.forEach(el => io.observe(el));
+  <footer>
+    <div class="wrap"><div>AD. © 2025 Atharva Dwivedi. All rights reserved.</div><div>Finance • Operations • Technology • Impact</div></div>
+  </footer>
 
-/* ================= BOOKING FORM ================= */
-function handleBooking(e){
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  const original = btn.innerHTML;
-  btn.innerHTML = '<i class="fa-solid fa-check"></i> Request Sent!';
-  btn.style.opacity = '0.85';
-  setTimeout(() => {
-    btn.innerHTML = original;
-    btn.style.opacity = '1';
-    e.target.reset();
-    alert('Dhanyawad! Your table booking request has been received. Our team will confirm shortly on your phone number.');
-  }, 1600);
-}
+  <script>
+    const navLinks = document.getElementById('navLinks');
+    document.getElementById('hamb').addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-/* =========================================================
-   THREE.js SCENE #1 — HERO: Embers, Steam & Floating Spices
-========================================================= */
-(function heroScene(){
-  const canvas = document.getElementById('hero-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.set(0, 0, 40);
-
-  function resize(){
-    const w = canvas.parentElement.clientWidth;
-    const h = canvas.parentElement.clientHeight;
-    renderer.setSize(w, h);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* ---- Ember particles (warm rising sparks) ---- */
-  const emberCount = 350;
-  const emberGeo = new THREE.BufferGeometry();
-  const emberPos = new Float32Array(emberCount * 3);
-  const emberSpeed = new Float32Array(emberCount);
-  const emberDrift = new Float32Array(emberCount);
-  const emberSize = new Float32Array(emberCount);
-
-  for (let i = 0; i < emberCount; i++){
-    const i3 = i * 3;
-    emberPos[i3]     = (Math.random() - 0.5) * 80;
-    emberPos[i3 + 1] = (Math.random() - 0.5) * 50 - 10;
-    emberPos[i3 + 2] = (Math.random() - 0.5) * 40;
-    emberSpeed[i] = 0.03 + Math.random() * 0.09;
-    emberDrift[i] = Math.random() * Math.PI * 2;
-    emberSize[i] = 0.6 + Math.random() * 1.8;
-  }
-  emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPos, 3));
-
-  const emberCanvas = document.createElement('canvas');
-  emberCanvas.width = 64; emberCanvas.height = 64;
-  const ectx = emberCanvas.getContext('2d');
-  const grad = ectx.createRadialGradient(32,32,0,32,32,32);
-  grad.addColorStop(0, 'rgba(255,214,120,1)');
-  grad.addColorStop(0.4, 'rgba(255,140,40,0.9)');
-  grad.addColorStop(1, 'rgba(255,60,0,0)');
-  ectx.fillStyle = grad;
-  ectx.fillRect(0,0,64,64);
-  const emberTexture = new THREE.CanvasTexture(emberCanvas);
-
-  const emberMat = new THREE.PointsMaterial({
-    size: 1.6, map: emberTexture, transparent: true, depthWrite: false,
-    blending: THREE.AdditiveBlending, vertexColors: false, color: 0xffb347, opacity: 0.85
-  });
-  const embers = new THREE.Points(emberGeo, emberMat);
-  scene.add(embers);
-
-  /* ---- Steam particles (soft rising smoke) ---- */
-  const steamCount = 90;
-  const steamGeo = new THREE.BufferGeometry();
-  const steamPos = new Float32Array(steamCount * 3);
-  for (let i = 0; i < steamCount; i++){
-    const i3 = i * 3;
-    steamPos[i3]     = (Math.random() - 0.5) * 90;
-    steamPos[i3 + 1] = (Math.random() - 0.5) * 60;
-    steamPos[i3 + 2] = (Math.random() - 0.5) * 50 - 10;
-  }
-  steamGeo.setAttribute('position', new THREE.BufferAttribute(steamPos, 3));
-
-  const steamCanvas = document.createElement('canvas');
-  steamCanvas.width = 128; steamCanvas.height = 128;
-  const sctx = steamCanvas.getContext('2d');
-  const sgrad = sctx.createRadialGradient(64,64,0,64,64,64);
-  sgrad.addColorStop(0, 'rgba(255,250,240,0.5)');
-  sgrad.addColorStop(1, 'rgba(255,250,240,0)');
-  sctx.fillStyle = sgrad;
-  sctx.fillRect(0,0,128,128);
-  const steamTexture = new THREE.CanvasTexture(steamCanvas);
-
-  const steamMat = new THREE.PointsMaterial({
-    size: 9, map: steamTexture, transparent: true, depthWrite: false,
-    opacity: 0.18, blending: THREE.NormalBlending
-  });
-  const steam = new THREE.Points(steamGeo, steamMat);
-  scene.add(steam);
-
-  /* ---- Floating spice specks (tiny golden dust) ---- */
-  const duskGeo = new THREE.BufferGeometry();
-  const duskCount = 200;
-  const duskPos = new Float32Array(duskCount * 3);
-  for (let i = 0; i < duskCount; i++){
-    duskPos[i*3] = (Math.random()-0.5)*100;
-    duskPos[i*3+1] = (Math.random()-0.5)*60;
-    duskPos[i*3+2] = (Math.random()-0.5)*60;
-  }
-  duskGeo.setAttribute('position', new THREE.BufferAttribute(duskPos,3));
-  const duskMat = new THREE.PointsMaterial({ size:0.35, color: 0xf0cf6a, transparent:true, opacity:0.55 });
-  const dusk = new THREE.Points(duskGeo, duskMat);
-  scene.add(dusk);
-
-  let mouseX = 0, mouseY = 0;
-  window.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5);
-    mouseY = (e.clientY / window.innerHeight - 0.5);
-  });
-
-  const clock = new THREE.Clock();
-  function animate(){
-    requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
-
-    const posArr = embers.geometry.attributes.position.array;
-    for (let i = 0; i < emberCount; i++){
-      const i3 = i * 3;
-      posArr[i3 + 1] += emberSpeed[i];
-      posArr[i3] += Math.sin(t * 0.6 + emberDrift[i]) * 0.02;
-      if (posArr[i3 + 1] > 30) posArr[i3 + 1] = -30;
-    }
-    embers.geometry.attributes.position.needsUpdate = true;
-
-    const steamArr = steam.geometry.attributes.position.array;
-    for (let i = 0; i < steamCount; i++){
-      const i3 = i * 3;
-      steamArr[i3 + 1] += 0.015;
-      steamArr[i3] += Math.sin(t * 0.3 + i) * 0.008;
-      if (steamArr[i3 + 1] > 35) steamArr[i3 + 1] = -35;
-    }
-    steam.geometry.attributes.position.needsUpdate = true;
-
-    dusk.rotation.y = t * 0.02;
-
-    camera.position.x += (mouseX * 6 - camera.position.x) * 0.02;
-    camera.position.y += (-mouseY * 6 - camera.position.y) * 0.02;
-    camera.lookAt(0,0,0);
-
-    renderer.render(scene, camera);
-  }
-  animate();
-})();
-
-/* =========================================================
-   THREE.js SCENE #2 — INTERACTIVE ROTATING BRASS THALI
-========================================================= */
-(function thaliScene(){
-  const canvas = document.getElementById('thali-canvas');
-  const wrap = canvas.parentElement;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-  camera.position.set(0, 6, 15);
-  camera.lookAt(0,0,0);
-
-  function resize(){
-    const w = wrap.clientWidth, h = wrap.clientHeight;
-    renderer.setSize(w, h);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* Lighting */
-  const ambient = new THREE.AmbientLight(0xfff2d0, 0.55);
-  scene.add(ambient);
-  const key = new THREE.PointLight(0xffcf7a, 1.4, 100);
-  key.position.set(8, 12, 10);
-  scene.add(key);
-  const rim = new THREE.PointLight(0xc1440e, 0.9, 100);
-  rim.position.set(-10, -4, -6);
-  scene.add(rim);
-  const fill = new THREE.PointLight(0xffffff, 0.4, 100);
-  fill.position.set(0, 6, -10);
-  scene.add(fill);
-
-  /* Group holding the whole thali assembly */
-  const thaliGroup = new THREE.Group();
-  scene.add(thaliGroup);
-
-  const brassMat = new THREE.MeshStandardMaterial({
-    color: 0xc9a227, metalness: 0.85, roughness: 0.32, emissive: 0x3a2a05, emissiveIntensity: 0.15
-  });
-  const brassMatDark = new THREE.MeshStandardMaterial({
-    color: 0x8a6a1e, metalness: 0.8, roughness: 0.4
-  });
-
-  /* Base thali plate — wide flat cylinder with rim */
-  const plateGeo = new THREE.CylinderGeometry(6, 6.3, 0.35, 64);
-  const plate = new THREE.Mesh(plateGeo, brassMat);
-  thaliGroup.add(plate);
-
-  const rimGeo = new THREE.TorusGeometry(6.15, 0.18, 16, 64);
-  const rimMesh = new THREE.Mesh(rimGeo, brassMatDark);
-  rimMesh.rotation.x = Math.PI / 2;
-  rimMesh.position.y = 0.18;
-  thaliGroup.add(rimMesh);
-
-  /* Decorative etched rings on the plate */
-  for (let r = 1; r <= 3; r++){
-    const ringGeo = new THREE.TorusGeometry(4.6 - r * 1.1, 0.035, 8, 64);
-    const ring = new THREE.Mesh(ringGeo, brassMatDark);
-    ring.rotation.x = Math.PI / 2;
-    ring.position.y = 0.19;
-    thaliGroup.add(ring);
-  }
-
-  /* Small katori bowls arranged around the thali (representing sabzi/dal) */
-  const bowlColors = [0xc1440e, 0x4d6b3a, 0xe8a33d, 0x6b1e23, 0xf0cf6a];
-  const bowlCount = 5;
-  for (let i = 0; i < bowlCount; i++){
-    const angle = (i / bowlCount) * Math.PI * 2;
-    const radius = 4.2;
-    const bowlGroup = new THREE.Group();
-
-    const katoriGeo = new THREE.SphereGeometry(0.85, 24, 16, 0, Math.PI * 2, 0, Math.PI / 1.7);
-    const katori = new THREE.Mesh(katoriGeo, brassMat);
-    katori.rotation.x = Math.PI;
-    bowlGroup.add(katori);
-
-    const foodGeo = new THREE.SphereGeometry(0.72, 20, 14, 0, Math.PI*2, 0, Math.PI/2.2);
-    const foodMat = new THREE.MeshStandardMaterial({ color: bowlColors[i], roughness: 0.6, metalness: 0.1 });
-    const food = new THREE.Mesh(foodGeo, foodMat);
-    food.position.y = 0.28;
-    food.rotation.x = Math.PI;
-    bowlGroup.add(food);
-
-    bowlGroup.position.set(Math.cos(angle) * radius, 0.55, Math.sin(angle) * radius);
-    thaliGroup.add(bowlGroup);
-  }
-
-  /* Central rice mound */
-  const riceGeo = new THREE.SphereGeometry(1.5, 24, 16, 0, Math.PI*2, 0, Math.PI/2.3);
-  const riceMat = new THREE.MeshStandardMaterial({ color: 0xfaf1d8, roughness: 0.9 });
-  const rice = new THREE.Mesh(riceGeo, riceMat);
-  rice.position.y = 0.35;
-  thaliGroup.add(rice);
-
-  /* Papad disc leaning on the side */
-  const papadGeo = new THREE.CylinderGeometry(1.1, 1.1, 0.06, 32);
-  const papadMat = new THREE.MeshStandardMaterial({ color: 0xd9b877, roughness: 0.85 });
-  const papad = new THREE.Mesh(papadGeo, papadMat);
-  papad.position.set(-4.6, 0.4, 3.2);
-  papad.rotation.z = 0.25;
-  thaliGroup.add(papad);
-
-  thaliGroup.rotation.x = 0.35;
-
-  /* Interaction: rotate with mouse / touch drag, plus gentle auto-spin */
-  let targetRotY = 0;
-  let isDragging = false;
-  let lastX = 0;
-  let autoSpin = true;
-
-  function pointerMove(clientX){
-    if (!isDragging) return;
-    const delta = clientX - lastX;
-    targetRotY += delta * 0.01;
-    lastX = clientX;
-  }
-
-  canvas.addEventListener('mousedown', (e) => { isDragging = true; autoSpin = false; lastX = e.clientX; canvas.style.cursor = 'grabbing'; });
-  window.addEventListener('mouseup', () => { isDragging = false; canvas.style.cursor = 'grab'; });
-  window.addEventListener('mousemove', (e) => pointerMove(e.clientX));
-
-  canvas.addEventListener('touchstart', (e) => { isDragging = true; autoSpin = false; lastX = e.touches[0].clientX; }, {passive:true});
-  window.addEventListener('touchend', () => { isDragging = false; });
-  window.addEventListener('touchmove', (e) => { if(e.touches[0]) pointerMove(e.touches[0].clientX); }, {passive:true});
-
-  /* Whole-page mouse movement gently tilts the thali too, for that 'reactive object' feel */
-  let pageMouseX = 0;
-  window.addEventListener('mousemove', (e) => {
-    pageMouseX = (e.clientX / window.innerWidth - 0.5);
-  });
-
-  const clock = new THREE.Clock();
-  function animate(){
-    requestAnimationFrame(animate);
-    const dt = clock.getDelta();
-
-    if (autoSpin && !isDragging){
-      targetRotY += dt * 0.35;
-    }
-    thaliGroup.rotation.y += (targetRotY - thaliGroup.rotation.y) * 0.12;
-    thaliGroup.rotation.z = pageMouseX * 0.12;
-
-    key.position.x = Math.sin(clock.elapsedTime * 0.4) * 10;
-
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  /* Resize observer in case layout shifts (e.g. responsive breakpoints) */
-  new ResizeObserver(resize).observe(wrap);
-})();
-</script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
