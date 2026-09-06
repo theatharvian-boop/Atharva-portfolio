@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Atharva Dwivedi — FinOps, Payments Reconciliation & Regulatory Compliance portfolio." />
+  <meta name="theme-color" content="#07111b" />
+  <title>Atharva Dwivedi | FinOps • Payments • Compliance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050a10;
+      --panel:#0b121b;
+      --panel2:#0d1721;
+      --text:#eef5ff;
+      --muted:#91a0b5;
+      --line:rgba(255,255,255,.10);
+      --cyan:#25e7d0;
+      --blue:#6f8cff;
+      --green:#45e6a5;
+      --danger:#ff5470;
+      --max:1180px;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at 75% 8%,rgba(38,231,208,.09),transparent 28%),
+        radial-gradient(circle at 15% 30%,rgba(111,140,255,.08),transparent 26%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom,black,transparent 78%);
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .mono{font:12px "JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow{color:var(--cyan);font:600 12px "JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase}
+    .muted{color:var(--muted)}
+
+    /* NAV */
+    nav{
+      position:fixed;z-index:50;top:18px;left:50%;transform:translateX(-50%);
+      width:min(calc(100% - 28px),1160px);
+      padding:12px 18px;border:1px solid var(--line);border-radius:28px;
+      background:rgba(8,15,23,.78);backdrop-filter:blur(18px);
+      box-shadow:0 12px 40px rgba(0,0,0,.25);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font:700 22px "Space Grotesk";letter-spacing:-.06em}
+    .brand span{color:var(--cyan)}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{font:600 11px "JetBrains Mono";letter-spacing:.14em;color:#aab5c6;text-transform:uppercase;transition:.2s}
+    .nav-links a:hover{color:#fff}
+    .nav-actions{display:flex;gap:9px;align-items:center}
+    .icon-btn,.say-btn{
+      border:1px solid var(--line);background:rgba(255,255,255,.025);color:#dfe8f6;
+      height:38px;border-radius:50%;display:grid;place-items:center;transition:.2s
+    }
+    .icon-btn{width:38px}
+    .say-btn{padding:0 18px;border-radius:22px;color:#fff;background:linear-gradient(135deg,#334bd7,#23cdbd);font:700 11px "JetBrains Mono";letter-spacing:.12em}
+    .icon-btn:hover,.say-btn:hover{transform:translateY(-2px);border-color:rgba(37,231,208,.5)}
+    .hamb{display:none;background:none;border:0;color:white;font-size:24px}
+
+    /* HERO */
+    .hero{min-height:790px;padding:150px 0 70px;display:grid;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    h1{font:700 clamp(50px,6.4vw,82px)/.98 "Space Grotesk";letter-spacing:-.065em;margin:17px 0 22px}
+    h1 .grad{background:linear-gradient(100deg,#fff 5%,#879cff 45%,#25e7d0 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:18px;max-width:610px;color:#a8b5c8}
+    .hero-copy strong{color:#edf5ff}
+    .hero-cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:13px;transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,#566fff,#22d5bd);color:white;border:0}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#8392a8;font:11px "JetBrains Mono";text-transform:uppercase;letter-spacing:.1em}
+    .network{
+      position:relative;min-height:470px;border:1px solid rgba(37,231,208,.15);border-radius:30px;
+      background:radial-gradient(circle at 50% 45%,rgba(38,231,208,.09),transparent 38%),rgba(8,16,25,.5);
+      overflow:hidden;box-shadow:var(--shadow)
+    }
+    .network:before,.network:after{content:"";position:absolute;border-radius:50%;filter:blur(30px)}
+    .network:before{width:120px;height:120px;background:rgba(37,231,208,.18);top:90px;right:80px}
+    .network:after{width:100px;height:100px;background:rgba(111,140,255,.17);left:80px;bottom:90px}
+    .nodes{position:absolute;inset:50px}
+    .node{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 20px currentColor;animation:pulse 2.5s infinite}
+    .node.blue{background:#7190ff;color:#7190ff}.node.red{background:var(--danger);color:var(--danger)}
+    .n1{left:13%;top:36%}.n2{left:26%;top:57%}.n3{left:41%;top:28%}.n4{left:53%;top:49%}.n5{left:69%;top:24%}.n6{left:82%;top:48%}.n7{left:60%;top:76%}.n8{left:34%;top:80%}
+    .edge{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(74,218,203,.5),transparent);transform-origin:left center}
+    .e1{width:190px;left:17%;top:41%;transform:rotate(25deg)}.e2{width:180px;left:28%;top:55%;transform:rotate(-20deg)}.e3{width:220px;left:43%;top:31%;transform:rotate(18deg)}.e4{width:170px;left:55%;top:50%;transform:rotate(-25deg)}.e5{width:170px;left:63%;top:29%;transform:rotate(34deg)}.e6{width:210px;left:38%;top:61%;transform:rotate(16deg)}
+    .status-card{position:absolute;padding:13px 16px;border:1px solid var(--line);background:rgba(7,14,22,.85);border-radius:13px;backdrop-filter:blur(12px);font:10px "JetBrains Mono";letter-spacing:.12em;text-transform:uppercase}
+    .status-card b{display:block;color:#fff;font-size:12px;margin-top:4px}.matched{top:52px;right:25px}.unmatched{left:24px;bottom:88px}.compliant{right:38px;bottom:52px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:8px;box-shadow:0 0 10px var(--cyan)}.red-dot{background:var(--danger);box-shadow:0 0 10px var(--danger)}
+    @keyframes pulse{50%{transform:scale(1.55);opacity:.6}}
+
+    /* METRICS */
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.025)}
+    .metric{padding:22px;border-right:1px solid var(--line)}.metric:last-child{border-right:0}
+    .metric strong{display:block;font:700 24px "Space Grotesk";margin-bottom:4px}.metric span{color:#8290a4;font-size:12px}
+
+    section{padding:105px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
+    h2{font:700 clamp(32px,4vw,48px)/1.05 "Space Grotesk";letter-spacing:-.045em;margin-top:8px}
+    .section-head p{max-width:500px;color:var(--muted);font-size:14px}
+
+    /* PROJECTS */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .project{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(145deg,rgba(14,25,37,.9),rgba(7,13,20,.88));transition:.25s;position:relative;overflow:hidden}
+    .project.featured{border-color:rgba(37,231,208,.28);grid-column:span 2}
+    .project:hover{transform:translateY(-5px);border-color:rgba(111,140,255,.4);box-shadow:0 20px 55px rgba(0,0,0,.28)}
+    .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .project h3{font:700 25px "Space Grotesk";letter-spacing:-.025em;margin:10px 0 10px}
+    .project p{color:#8f9db1;font-size:14px;line-height:1.75}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+    .tag{font:10px "JetBrains Mono";letter-spacing:.09em;text-transform:uppercase;color:#b4bdca;border:1px solid var(--line);padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.03)}
+    .project-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .small-btn{padding:9px 12px;border-radius:9px;border:1px solid var(--line);font:600 10px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase}
+    .small-btn.primary{border-color:rgba(37,231,208,.35);color:var(--cyan)}
+    .mock{
+      min-height:245px;border-radius:15px;border:1px solid rgba(255,255,255,.08);
+      background:#071018;padding:15px;box-shadow:inset 0 0 40px rgba(0,0,0,.35)
+    }
+    .mock-top{display:flex;gap:7px;margin-bottom:14px}.mock-top i{width:7px;height:7px;border-radius:50%;background:#405064}
+    .mock-title{font:700 12px "JetBrains Mono";color:#dce8f6;margin-bottom:14px}
+    .mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .mock-box{height:45px;border:1px solid rgba(255,255,255,.07);border-radius:7px;background:rgba(255,255,255,.025);padding:8px}.mock-box b{font-size:12px;color:#e9f3ff}.mock-box span{font-size:7px;color:#6f8197}
+    .bars{display:flex;align-items:end;gap:7px;height:100px;margin-top:12px}.bars i{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,#1abcae,#526eff);opacity:.8}.bars i:nth-child(1){height:40%}.bars i:nth-child(2){height:70%}.bars i:nth-child(3){height:55%}.bars i:nth-child(4){height:88%}.bars i:nth-child(5){height:64%}.bars i:nth-child(6){height:95%}
+
+    /* SKILLS */
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .skill{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+    .skill strong{display:block;margin:8px 0 4px}.skill span{font-size:12px;color:var(--muted)}
+
+    /* EXPERIENCE */
+    .timeline{position:relative;max-width:900px;margin:auto}
+    .timeline:before{content:"";position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(111,140,255,.2))}
+    .role{position:relative;padding-left:62px;margin-bottom:28px}
+    .role:before{content:"";position:absolute;left:13px;top:5px;width:15px;height:15px;border-radius:50%;border:3px solid var(--bg);background:var(--cyan);box-shadow:0 0 0 1px rgba(37,231,208,.5),0 0 18px rgba(37,231,208,.35)}
+    .role-card{padding:22px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.025)}
+    .role-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.role h3{font:700 19px "Space Grotesk"}.date{color:#718096;font:10px "JetBrains Mono"}
+    .role ul{margin:12px 0 0 18px;color:#93a1b5;font-size:13px}.role li{margin:6px 0}
+
+    /* CONTACT */
+    .contact-box{padding:38px;border:1px solid rgba(37,231,208,.2);border-radius:25px;background:radial-gradient(circle at 80% 0,rgba(37,231,208,.1),transparent 35%),rgba(255,255,255,.025);display:grid;grid-template-columns:1fr 1fr;gap:45px}
+    .contact-box h2{margin-bottom:14px}.contact-box p{color:var(--muted);max-width:480px}
+    .contact-links{display:grid;gap:10px}.contact-link{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);display:flex;justify-content:space-between;align-items:center}.contact-link span{color:var(--muted);font-size:12px}.contact-link b{font-size:13px}
+
+    footer{padding:28px 0 40px;color:#68778b;font-size:11px;border-top:1px solid rgba(255,255,255,.06)}
+    footer .wrap{display:flex;justify-content:space-between;gap:20px}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){
+      .nav-links{display:none}.hamb{display:block}
+      .nav-links.open{display:flex;position:absolute;top:62px;left:0;right:0;padding:18px;border:1px solid var(--line);border-radius:18px;background:#09121b;flex-direction:column;gap:16px}
+      .hero-grid,.project-grid,.contact-box{grid-template-columns:1fr}.network{min-height:390px}
+      .metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .skills{grid-template-columns:repeat(2,1fr)}.project.featured{grid-column:span 1}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(calc(100% - 26px),var(--max))}nav{top:8px}
+      .nav-actions .icon-btn{display:none}.hero{padding-top:125px;min-height:auto}h1{font-size:52px}
+      .network{min-height:320px}.nodes{inset:25px}.status-card{transform:scale(.86);transform-origin:center}
+      .metrics,.skills{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)!important}.metric:last-child{border-bottom:0!important}
+      .project{padding:18px}.project-grid{gap:18px}.mock{min-height:210px}
+      .section-head{display:block}.section-head p{margin-top:12px}.role-top{display:block}.date{display:block;margin-top:5px}
+      section{padding:75px 0}.contact-box{padding:25px}.hero-meta{gap:12px}
+      footer .wrap{display:block}footer .wrap div+div{margin-top:8px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.node{animation:none}.btn,.project{transition:none}
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#top">AD<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+        <a class="icon-btn" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer" aria-label="GitHub">⌘</a>
+        <a class="say-btn" href="#contact">SAY HI</a>
+        <button class="hamb" id="hamb" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">FinOps • Payments • Compliance • Automation</div>
+          <h1>From <span class="grad">Transactions</span><br>to <span class="grad">Trust.</span></h1>
+          <p class="hero-copy">
+            MBA Finance candidate with hands-on <strong>FinOps internship experience in UPI reconciliation</strong> and payments operations at Razorpay. Skilled in transaction matching, exception management, and AI-driven tools for streamlining reconciliation workflows.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">VIEW PROJECTS →</a>
+            <a class="btn" href="mailto:theatharvian@gmail.com?subject=Portfolio%20Enquiry">✉ CONTACT ME</a>
+          </div>
+          <div class="hero-meta"><span>📍 Unnao, Uttar Pradesh, India</span><span>Hindi • English</span><span>FinOps • Payments • Finance</span></div>
+        </div>
+
+        <div class="network reveal" aria-label="Animated-style reconciliation network">
+          <div class="nodes">
+            <i class="node n1"></i><i class="node blue n2"></i><i class="node n3"></i><i class="node blue n4"></i>
+            <i class="node n5"></i><i class="node n6"></i><i class="node blue n7"></i><i class="node red n8"></i>
+            <i class="edge e1"></i><i class="edge e2"></i><i class="edge e3"></i><i class="edge e4"></i><i class="edge e5"></i><i class="edge e6"></i>
+          </div>
+          <div class="status-card matched"><span class="dot"></span>Transaction <b>Matched</b></div>
+          <div class="status-card unmatched"><span class="dot red-dot"></span>Transaction <b>Unmatched</b></div>
+          <div class="status-card compliant"><span class="dot"></span>Regulatory <b>Compliant</b></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap reveal">
+      <div class="metrics">
+        <div class="metric"><strong>UPI</strong><span>Payments reconciliation</span></div>
+        <div class="metric"><strong>3-Tier</strong><span>Matching hierarchy</span></div>
+        <div class="metric"><strong>BBPS</strong><span>Bill payment matching</span></div>
+        <div class="metric"><strong>T+1/T+2</strong><span>Settlement discrepancy analysis</span></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="eyebrow">01 • About</div><h2>Finance meets<br>technology.</h2></div>
+          <p>My work sits at the intersection of finance operations, payment systems, reconciliation, compliance, and AI-assisted workflow automation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">02 • Featured Work</div><h2>Projects that solve<br><span style="color:var(--cyan)">real problems.</span></h2></div>
+          <p>Selected projects focused on reconciliation, regulatory reporting, payment operations, and career tooling.</p>
+        </div>
+
+        <div class="projects">
+          <article class="project featured reveal">
+            <div class="project-grid">
+              <div>
+                <div class="eyebrow">AI Reconciliation Tooling • Flagship</div>
+                <h3>ReconCopilot</h3>
+                <p>End-to-end reconciliation command center built around a three-tier transaction matching workflow, synthetic datasets, fast lookup logic, and an AI-assisted investigation experience.</p>
+                <div class="tags"><span class="tag">3-Tier Matching</span><span class="tag">Synthetic Data</span><span class="tag">O(n) Lookup</span><span class="tag">Claude API</span><span class="tag">HTML</span></div>
+                <div class="project-links">
+                  <a class="small-btn primary" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a>
+                  <a class="small-btn" href="#contact">PROJECT DETAILS →</a>
+                </div>
+              </div>
+              <div class="mock">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-title">RECON COMMAND CENTER</div>
+                <div class="mock-grid"><div class="mock-box"><b>98.4%</b><span>MATCH RATE</span></div><div class="mock-box"><b>12,842</b><span>PROCESSED</span></div><div class="mock-box"><b>184</b><span>BREAKS</span></div></div>
+                <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="eyebrow">Razorpay Internship Project</div>
+            <h3>RBI Regulatory Compliance Dashboard</h3>
+            <p>A compliance-dashboard concept included in the portfolio to showcase interest in regulatory reporting and structured payment-operations workflows.</p>
+            <div class="tags"><span class="tag">RBI Guidelines</span><span class="tag">Regulatory Reporting</span><span class="tag">Data Aggregation</span><span class="tag">Compliance Monitoring</span></div>
+            <div class="project-links"><a class="small-btn primary" href="#contact">PROJECT DETAILS →</a></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="eyebrow">Internal Tooling</div>
+            <h3>AI-Assisted Reconciliation Dashboard</h3>
+            <p>Personal reconciliation dashboard developed through AI-assisted prompting to turn manual matching work into a more structured and repeatable workflow.</p>
+            <div class="tags"><span class="tag">AI Prompting</span><span class="tag">Workflow Automation</span><span class="tag">Reconciliation</span></div>
+            <div class="project-links"><a class="small-btn primary" href="#contact">VIEW DETAILS →</a></div>
+          </article>
+
+          <article class="project reveal">
+            <div class="eyebrow">AI • Career Tooling</div>
+            <h3>Jobfit AI</h3>
+            <p>An AI-oriented job matching concept that compares candidate information with role requirements and helps surface relevant opportunities.</p>
+            <div class="tags"><span class="tag">AI Resume Matching</span><span class="tag">Job Discovery</span><span class="tag">Automation</span></div>
+            <div class="project-links"><a class="small-btn primary" href="https://github.com/theatharvian-boop/Mba-Job-Matcher" target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">03 • Skills</div><h2>Tools & technologies.</h2></div>
+        </div>
+        <div class="skills">
+          <div class="skill reveal"><div class="eyebrow">01</div><strong>FinOps & Fintech</strong><span>UPI Reconciliation • BBPS Bill Payment Matching • Payment Lifecycle • Chargeback Basics • Exception Management</span></div>
+          <div class="skill reveal"><div class="eyebrow">02</div><strong>Microsoft Excel</strong><span>VLOOKUP • Pivot Tables • SUMIF • COUNTIF • MS Office Suite</span></div>
+          <div class="skill reveal"><div class="eyebrow">03</div><strong>AI-Assisted Tooling</strong><span>AI-powered reconciliation tooling • Workflow streamlining • Manual process automation</span></div>
+          <div class="skill reveal"><div class="eyebrow">04</div><strong>Professional Skills</strong><span>Problem Solving • Team Leadership • Communication • Time Management • Attention to Detail • Analytical Mindset</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">04 • Experience</div><h2>Professional journey.</h2></div>
+        </div>
+        <div class="timeline">
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>FinOps Intern — POP UPI Reconciliation Team</h3><div class="eyebrow" style="margin-top:5px">Razorpay • Bangalore, India</div></div><span class="date">2-MONTH INTERNSHIP</span></div>
+              <ul>
+                <li>Performed end-to-end reconciliation of POP UPI transactions across multiple internal and BBPS data sources.</li>
+                <li>Applied the three-tier matching hierarchy: order_number → payment_reference_id → bbps_transaction_id.</li>
+                <li>Used hybrid payment formula logic: BBPS Amount = Internal Amount − Coins Redeemed.</li>
+                <li>Used AI-powered tooling to streamline manual reconciliation steps and reduce turnaround time.</li>
+                <li>Investigated settlement discrepancies across T+1/T+2 cycles and coordinated resolution with cross-functional payment data.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>MBA — Finance & Operations</h3><div class="eyebrow" style="margin-top:5px">Dr. A.P.J. Abdul Kalam Technical University (AKTU)</div></div><span class="date">PURSUING</span></div>
+              <ul><li>Current MBA Finance & Operations candidate focused on analytical, operational, and finance-oriented problem solving.</li></ul>
+            </div>
+          </div>
+          <div class="role reveal">
+            <div class="role-card">
+              <div class="role-top"><div><h3>B.A. — Bachelor of Arts</h3><div class="eyebrow" style="margin-top:5px">Chhatrapati Shahu Ji Maharaj University, Kanpur</div></div><span class="date">COMPLETED</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div><div class="eyebrow">05 • Leadership & Activities</div><h2>Beyond the<br><span style="color:var(--cyan)">work.</span></h2></div>
+          <p>Activities that reflect communication, confidence, teamwork, and leadership.</p>
+        </div>
+        <div class="skills">
+          <div class="skill"><div class="eyebrow">01</div><strong>Inter-College Debate</strong><span>Led a group for an inter-college debate competition.</span></div>
+          <div class="skill"><div class="eyebrow">02</div><strong>Management Fest</strong><span>Participated in an Ad Mad Show during a college Management Fest.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap reveal">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">06 • Contact</div>
+            <h2>Let's build something<br><span style="color:var(--cyan)">meaningful.</span></h2>
+            <p>Seeking a full-time opportunity in FinOps, Payments, or Finance where I can apply analytical rigor and process ownership to drive operational accuracy.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:theatharvian@gmail.com"><span>Email</span><b>theatharvian@gmail.com ↗</b></a>
+            <a class="contact-link" href="tel:+918574888867"><span>Phone</span><b>+91-8574888867</b></a>
+            <div class="contact-link"><span>Location</span><b>Unnao, Uttar Pradesh, India</b></div>
+            <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span><b>Connect ↗</b></a>
+            <a class="contact-link" href="https://github.com/theatharvian-boop" target="_blank" rel="noreferrer"><span>GitHub</span><b>theatharvian-boop ↗</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><div>AD. © 2025 Atharva Dwivedi. All rights reserved.</div><div>Finance • Operations • Technology • Impact</div></div>
+  </footer>
+
+  <script>
+    const navLinks = document.getElementById('navLinks');
+    document.getElementById('hamb').addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
